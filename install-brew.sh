@@ -9,5 +9,3 @@ else
     echo "brew is already installed."
 fi
 
-brew update
-brew install neovim

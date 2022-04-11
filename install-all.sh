@@ -1,13 +1,18 @@
 cd $(dirname $0)
 
-echo "Installing Haskell and friends"
-sh ./haskell.sh 
+install_with_yes_no()
+{
+    PACKAGE_NAME=$1
+    INSTALL_SCRIPT=$2
+    read -p "Do you want to install $PACKAGE_NAME ? [y/n] " yn
+    case $yn in 
+        [Yy]* ) echo "Installing $PACKAGE_NAME"; sh $INSTALL_SCRIPT; break;;
+        [Nn]* ) break;;
+    esac
+}
 
-echo "Installing homebrew and its packages"
-sh ./install-brew.sh
-
-echo "Installing python3 tooling"
-sh ./install-python.sh
-
-echo "Installing Vim-plug"
-sh ./install-vim-plug.sh
+install_with_yes_no "Haskell and friends" "./install-haskell.sh"
+install_with_yes_no "Homebrew" "./install-brew.sh"
+install_with_yes_no "Neovim" "./install-neovim.sh"
+install_with_yes_no "Vimplug" "./install-vim-plug.sh"
+install_with_yes_no "Python3 Neovim support" "install-python.sh"
