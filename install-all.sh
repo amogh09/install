@@ -13,6 +13,5 @@ install_with_yes_no()
 
 install_with_yes_no "Haskell and friends" "./install-haskell.sh"
 install_with_yes_no "Homebrew" "./install-brew.sh"
-install_with_yes_no "Neovim" "./install-neovim.sh"
-install_with_yes_no "Vimplug" "./install-vim-plug.sh"
+install_with_yes_no "Neovim and Vimplug" "./install-neovim.sh"
 install_with_yes_no "Python3 Neovim support" "install-python.sh"
